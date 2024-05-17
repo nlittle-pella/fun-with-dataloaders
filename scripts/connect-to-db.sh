@@ -22,7 +22,7 @@ aws ec2-instance-connect send-ssh-public-key \
   --ssh-public-key file:///tmp/temp.pub | cat
 ssh -i /tmp/temp \
   -Nf -M -v \
-  -L 5432:example-api-db.${DATABASE_ID}.us-east-2.rds.amazonaws.com:5432 \
+  -L 5432:author-api-db.${DATABASE_ID}.us-east-2.rds.amazonaws.com:5432 \
   -o "UserKnownHostsFile=/dev/null" \
   -o "StrictHostKeyChecking=no" \
   -o ProxyCommand="aws ssm start-session --target %h --document AWS-StartSSHSession --parameters portNumber=%p --region=us-east-2" \

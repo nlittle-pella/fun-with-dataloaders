@@ -1,8 +1,8 @@
 {
     "db": {
-        "database": "example-api",
+        "database": "author-api",
         "host": "127.0.0.1",
-        "user": "example_api",
-        "password": "example_api_ps"
+        "user": "author_api",
+        "password": "author_api_ps"
     }
 }

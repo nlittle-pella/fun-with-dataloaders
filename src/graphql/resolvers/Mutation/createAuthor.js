@@ -2,12 +2,12 @@ import {randomUUID} from 'node:crypto';
 
 import joi from 'joi';
 
-import {addExample} from '../../../repositories/example-repository.js';
+import {addAuthor} from '../../../repositories/author-repository.js';
 
 const handler = (parent, args) => {
-    const {id = randomUUID(), ...rest} = args.input.example;
+    const {id = randomUUID(), ...rest} = args.input.author;
 
-    return addExample({
+    return addAuthor({
         id,
         ...rest,
     });
@@ -16,7 +16,7 @@ const handler = (parent, args) => {
 const schemas = {
     args: joi.object({
         input: {
-            example: joi.object({
+            author: joi.object({
                 id: joi.string().guid(),
             }),
         },

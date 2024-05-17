@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 
 ARG GIT_SHA
 ENV GIT_SHA=${GIT_SHA}
-ENV TELEMETRY_SERVICE_NAME="example-api"
+ENV TELEMETRY_SERVICE_NAME="author-api"
 
 COPY --from=builder /usr/src/app .
 

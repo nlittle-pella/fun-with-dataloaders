@@ -4,7 +4,7 @@ import {gql} from '@apollo/client/core';
 
 import {initializeClient} from '../../utils.js';
 
-describe('getExampleById', () => {
+describe('getAuthorById', () => {
     let client,
         id;
 
@@ -16,28 +16,28 @@ describe('getExampleById', () => {
         id = randomUUID();
     });
 
-    test('should be able to get the example that was just added', async () => {
-        const {data: {createExample}} = await client.mutate({
+    test('should be able to get the author that was just added', async () => {
+        const {data: {createAuthor}} = await client.mutate({
             mutation: gql`
-                mutation CreateExample($input: CreateExampleInput!) {
-                    createExample(input: $input) {
+                mutation CreateAuthor($input: CreateAuthorInput!) {
+                    createAuthor(input: $input) {
                         id
                     }
                 }
             `,
             variables: {
                 input: {
-                    example: {
+                    author: {
                         id,
                     },
                 },
             },
         });
 
-        const {data: {getExampleById}} = await client.query({
+        const {data: {getAuthorById}} = await client.query({
             query: gql`
-                query GetExampleById($id: String!) {
-                    getExampleById(id: $id) {
+                query GetAuthorById($id: String!) {
+                    getAuthorById(id: $id) {
                         id
                     }
                 }
@@ -47,14 +47,14 @@ describe('getExampleById', () => {
             },
         });
 
-        expect(getExampleById.id).toBe(createExample.id);
+        expect(getAuthorById.id).toBe(createAuthor.id);
     });
 
-    test('should return null if the example does not exist by that id', async () => {
-        const {data: {getExampleById}} = await client.query({
+    test('should return null if the author does not exist by that id', async () => {
+        const {data: {getAuthorById}} = await client.query({
             query: gql`
-                query GetExampleById($id: String!) {
-                    getExampleById(id: $id) {
+                query GetAuthorById($id: String!) {
+                    getAuthorById(id: $id) {
                         id
                     }
                 }
@@ -64,6 +64,6 @@ describe('getExampleById', () => {
             },
         });
 
-        expect(getExampleById).toBeNull();
+        expect(getAuthorById).toBeNull();
     });
 });

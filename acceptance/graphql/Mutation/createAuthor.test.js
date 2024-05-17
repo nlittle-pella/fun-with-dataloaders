@@ -4,7 +4,7 @@ import {gql} from '@apollo/client/core';
 
 import {initializeClient} from '../../utils.js';
 
-describe('createExample', () => {
+describe('createAuthor', () => {
     let client,
         id;
 
@@ -16,24 +16,24 @@ describe('createExample', () => {
         id = randomUUID();
     });
 
-    test('should be able to get the example that was just added', async () => {
-        const {data: {createExample}} = await client.mutate({
+    test('should be able to get the author that was just added', async () => {
+        const {data: {createAuthor}} = await client.mutate({
             mutation: gql`
-                mutation CreateExample($input: CreateExampleInput!) {
-                    createExample(input: $input) {
+                mutation CreateAuthor($input: CreateAuthorInput!) {
+                    createAuthor(input: $input) {
                         id
                     }
                 }
             `,
             variables: {
                 input: {
-                    example: {
+                    author: {
                         id,
                     },
                 },
             },
         });
 
-        expect(createExample.id).toBe(id);
+        expect(createAuthor.id).toBe(id);
     });
 });

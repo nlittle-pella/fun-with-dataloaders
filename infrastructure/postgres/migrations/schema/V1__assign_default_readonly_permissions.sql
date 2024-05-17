@@ -1,7 +1,7 @@
-ALTER ROLE example_api_readonly WITH NOCREATEDB NOCREATEROLE NOINHERIT;
+ALTER ROLE author_api_readonly WITH NOCREATEDB NOCREATEROLE NOINHERIT;
 
-GRANT USAGE ON SCHEMA example TO example_api_readonly;
+GRANT USAGE ON SCHEMA author TO author_api_readonly;
 
-ALTER DEFAULT PRIVILEGES IN SCHEMA example GRANT SELECT ON TABLES TO example_api_readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA author GRANT SELECT ON TABLES TO author_api_readonly;
 
-GRANT SELECT ON ALL TABLES IN SCHEMA example TO example_api_readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA author TO author_api_readonly;

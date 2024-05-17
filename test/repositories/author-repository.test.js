@@ -1,21 +1,21 @@
 import {query} from '@pella/postgres-adapter';
 
 import {
-    addExample,
-    selectExampleById,
-} from '../../src/repositories/example-repository.js';
+    addAuthor,
+    selectAuthorById,
+} from '../../src/repositories/author-repository.js';
 import {
-    insertExampleQuery,
-    selectExampleByIdQuery,
-} from '../../src/repositories/queries/example.js';
+    insertAuthorQuery,
+    selectAuthorByIdQuery,
+} from '../../src/repositories/queries/author.js';
 
-describe('example repository', () => {
-    describe('addExample', () => {
-        test('should insert the example to the database table and return it back out', async () => {
+describe('author repository', () => {
+    describe('addAuthor', () => {
+        test('should insert the author to the database table and return it back out', async () => {
             const row = {
                 [chance.string()]: chance.string(),
             };
-            const example = {
+            const author = {
                 id: chance.guid(),
             };
 
@@ -23,19 +23,19 @@ describe('example repository', () => {
                 rows: [row],
             });
 
-            const result = await addExample(example);
+            const result = await addAuthor(author);
 
             expect(query).toHaveBeenCalledTimes(1);
-            expect(query).toHaveBeenCalledWith(insertExampleQuery, [
-                example.id,
+            expect(query).toHaveBeenCalledWith(insertAuthorQuery, [
+                author.id,
             ]);
 
             expect(result).toStrictEqual(row);
         });
     });
 
-    describe('selectExampleById', () => {
-        test('should select the example by id', async () => {
+    describe('selectAuthorById', () => {
+        test('should select the author by id', async () => {
             const row = {
                 [chance.string()]: chance.string(),
             };
@@ -45,10 +45,10 @@ describe('example repository', () => {
                 rows: [row],
             });
 
-            const result = await selectExampleById(id);
+            const result = await selectAuthorById(id);
 
             expect(query).toHaveBeenCalledTimes(1);
-            expect(query).toHaveBeenCalledWith(selectExampleByIdQuery, [
+            expect(query).toHaveBeenCalledWith(selectAuthorByIdQuery, [
                 id,
             ]);
 

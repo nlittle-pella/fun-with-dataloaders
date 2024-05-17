@@ -1,8 +1,8 @@
 {
     "db": {
-        "database": "exampleapidb",
-        "host": "example-api-db.cff0y4vrd0gw.us-east-2.rds.amazonaws.com",
-        "user": "example_api",
-        "password": "EXAMPLE_API_PASSWORD"
+        "database": "authorapidb",
+        "host": "author-api-db.cff0y4vrd0gw.us-east-2.rds.amazonaws.com",
+        "user": "author_api",
+        "password": "AUTHOR_API_PASSWORD"
     }
 }

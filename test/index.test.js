@@ -14,7 +14,7 @@ describe('index', () => {
             beforeServerStarts,
             healthzHandler,
             enableGraphqlFederation: true,
-            name: 'example-api',
+            name: 'author-api',
             port: 5130,
         });
     });

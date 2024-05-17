@@ -1,8 +1,8 @@
 import joi from 'joi';
 
-import {selectExampleById} from '../../../repositories/example-repository.js';
+import {selectAuthorById} from '../../../repositories/author-repository.js';
 
-const handler = (parent, args) => selectExampleById(args.id);
+const handler = (parent, args) => selectAuthorById(args.id);
 
 const schemas = {
     args: joi.object({

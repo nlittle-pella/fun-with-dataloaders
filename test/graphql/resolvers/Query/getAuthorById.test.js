@@ -1,38 +1,38 @@
 import joi from 'joi';
 
-import {handler, schemas} from '../../../../src/graphql/resolvers/Query/getExampleById.js';
-import {selectExampleById} from '../../../../src/repositories/example-repository.js';
+import {handler, schemas} from '../../../../src/graphql/resolvers/Query/getAuthorById.js';
+import {selectAuthorById} from '../../../../src/repositories/author-repository.js';
 
 jest.mock('node:crypto');
-jest.mock('../../../../src/repositories/example-repository.js');
+jest.mock('../../../../src/repositories/author-repository.js');
 
-describe('getExampleById', () => {
+describe('getAuthorById', () => {
     describe('handler', () => {
-        test('should get the example by the id provided', async () => {
+        test('should get the author by the id provided', async () => {
             const id = chance.guid();
-            const example = {
+            const author = {
                 id,
             };
 
             const args = {id};
 
-            selectExampleById.mockResolvedValue(example);
+            selectAuthorById.mockResolvedValue(author);
 
             const results = await handler({}, args);
 
-            expect(selectExampleById).toHaveBeenCalledTimes(1);
-            expect(selectExampleById).toHaveBeenCalledWith(id);
+            expect(selectAuthorById).toHaveBeenCalledTimes(1);
+            expect(selectAuthorById).toHaveBeenCalledWith(id);
 
-            expect(results).toStrictEqual(example);
+            expect(results).toStrictEqual(author);
         });
     });
 
     describe('schemas', () => {
         describe('args', () => {
-            let example;
+            let author;
 
             beforeEach(() => {
-                example = {
+                author = {
                     id: chance.guid(),
                 };
             });
@@ -49,7 +49,7 @@ describe('getExampleById', () => {
                 });
 
                 test('should fail if the id is not a string', () => {
-                    example.id = chance.natural();
+                    author.id = chance.natural();
 
                     try {
                         joi.attempt({id: chance.natural()}, schemas.args);
@@ -59,7 +59,7 @@ describe('getExampleById', () => {
                 });
 
                 test('should fail if the id is not a valid guid', () => {
-                    example.id = chance.string();
+                    author.id = chance.string();
 
                     try {
                         joi.attempt({id: chance.string()}, schemas.args);

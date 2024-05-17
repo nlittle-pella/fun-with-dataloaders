@@ -1,19 +1,19 @@
-type Example {
+type Author {
     id: ID!
 }
 
-input InputExample {
+input InputAuthor {
     id: String
 }
 
-input CreateExampleInput {
-    example: InputExample
+input CreateAuthorInput {
+    author: InputAuthor
 }
 
 type Mutation {
-    createExample(input: CreateExampleInput!): Example!
+    createAuthor(input: CreateAuthorInput!): Author!
 }
 
 type Query {
-    getExampleById(id: String!): Example
+    getAuthorById(id: String!): Author
 }

@@ -1,26 +1,26 @@
 version: '2.1'
 services:
-  example-api:
-    container_name: example-api
+  author-api:
+    container_name: author-api
     build:
       context: .
       args:
         NPM_TOKEN: "${NPM_TOKEN}"
         GIT_SHA: "${GIT_SHA:-SNAPSHOT}"
-    image: example-api:SNAPSHOT
+    image: author-api:SNAPSHOT
     ports:
       - 5130:5130
     environment:
       NODE_ENV: localhost
-      POSTGRES_HOST: example-db
-      POSTGRES_USER: example_api
-      POSTGRES_PASSWORD: example_api_ps
+      POSTGRES_HOST: author-db
+      POSTGRES_USER: author_api
+      POSTGRES_PASSWORD: author_api_ps
     restart: on-failure
     depends_on:
-      - example-db
-  example-db:
-    container_name: example-db
-    image: example-db
+      - author-db
+  author-db:
+    container_name: author-db
+    image: author-db
     build:
       context: infrastructure/postgres
     healthcheck:

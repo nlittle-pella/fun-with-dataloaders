@@ -1,8 +1,8 @@
 configVersion: 1
-name: example-api
+name: author-api
 id: ari:cloud:compass:c898da8b-9bf6-4b8f-a070-6cd759173170:component/d1aac969-13c5-4dc4-bc95-f06577fea708/22c58eac-c155-4cfa-ace6-9e47bc2634b7
 description: |-
-  API for examples
+  API for authors
 ownerId: ari:cloud:teams::team/b9d2da98-7326-4be9-b12a-5a7e05d49d4f
 typeId: TEMPLATE
 fields:
@@ -23,15 +23,15 @@ fields:
 links:
   - name: GitHub Repository URL
     type: REPOSITORY
-    url: https://github.com/Pella-Digital-Team/example-api
+    url: https://github.com/Pella-Digital-Team/author-api
 #  - name: LeanIX URL
-#    url: https://www.example.com/xxxxxxx
+#    url: https://www.author.com/xxxxxxx
 #    type: OTHER_LINK
 #  - name: Postman Collection
-#    url: https://www.example.com/xxxxxxx
+#    url: https://www.author.com/xxxxxxx
 #    type: OTHER_LINK
 #  - name: GraphQL Endpoint/Explorer
-#    url: https://www.example.com/xxxxxxx
+#    url: https://www.author.com/xxxxxxx
 #    type: OTHER_LINK
 # (Optional) Provide any labels. use labels: [] if empty
 labels: []

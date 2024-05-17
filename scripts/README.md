@@ -18,4 +18,4 @@ Run `aws-sso exec` to set your credentials for the current shell.
 In the same terminal, `cd` to this folder (where `connect-to-db.sh` lives. 
 Run the `connect-to-db.sh` script.
 
-Open up your db tool of choice (IntelliJ, WebStorm, DataGrip) and connect to `localhost:5432` using the credentials for `example-api` db found in AWS Secrets Manager and `exampleapidb` as the db name. 
+Open up your db tool of choice (IntelliJ, WebStorm, DataGrip) and connect to `localhost:5432` using the credentials for `author-api` db found in AWS Secrets Manager and `authorapidb` as the db name. 

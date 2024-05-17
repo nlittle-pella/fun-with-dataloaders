@@ -1,13 +1,13 @@
-# example-graphql-api-with-postgres
+# author-graphql-api-with-postgres
 
-**Previously example-api**
+**Previously author-api**
 
-This is an example project that uses `@pella/graphql-api` and
+This is an author project that uses `@pella/graphql-api` and
 stands up a Postgres Database using Docker. Both unit tests and acceptance
 test are ran during the verify process as well. The workflow for this project is currently set up to deploy to our `EKS Clusters in AWS`.
 
 ## Getting Started
-To use this template for a new repository, please visit the [Dalebot Repository](https://github.com/Pella-Digital-Team/dalebot) and open a new `Create Repo` issue, selecting the `example-api` template. Instructions on this can be found in the Dalebot readmes.
+To use this template for a new repository, please visit the [Dalebot Repository](https://github.com/Pella-Digital-Team/dalebot) and open a new `Create Repo` issue, selecting the `author-api` template. Instructions on this can be found in the Dalebot readmes.
 
 ## Dependencies
 
@@ -27,7 +27,7 @@ This project uses Docker to compose different images together. You will need to 
 
 ## Using this template
 
-There is a script that will replace all instances of `example-api` in all files with your repository name. To use this template, follow these steps:
+There is a script that will replace all instances of `author-api` in all files with your repository name. To use this template, follow these steps:
 
 1. Run `npm i`
 2. Run `npm run replace (your-repository-name)`
@@ -36,7 +36,7 @@ There is a script that will replace all instances of `example-api` in all files 
 
 ### Getting deployed
 
-A Terraform PR to our [AWS Repository](https://github.com/Pella-Digital-Team/aws) is required when creating a new application. This will provision necessary resources for your app, including an IAM User, a corresponding Policy for the user, and your database. The DevOps team has created a tf module you can utilize, here is an example `your-app-name.tf` to reference.
+A Terraform PR to our [AWS Repository](https://github.com/Pella-Digital-Team/aws) is required when creating a new application. This will provision necessary resources for your app, including an IAM User, a corresponding Policy for the user, and your database. The DevOps team has created a tf module you can utilize, here is an author `your-app-name.tf` to reference.
 
 ```terraform
 module "your_app_name" {

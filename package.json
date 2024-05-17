@@ -1,12 +1,12 @@
 {
-    "name": "example-api",
+    "name": "author-api",
     "version": "1.0.0",
-    "description": "API for example",
+    "description": "API for author",
     "private": true,
     "main": "index.js",
     "scripts": {
         "docker:start": "docker compose up -d --build && npm run flyway:migrate",
-        "docker:infra": "docker compose up --build -d example-db && npm run flyway:migrate",
+        "docker:infra": "docker compose up --build -d author-db && npm run flyway:migrate",
         "docker:stop": "docker compose down",
         "flyway:migrate": "./scripts/flyway-migrate.sh",
         "start": "NODE_ENV=localhost node --watch index.js",

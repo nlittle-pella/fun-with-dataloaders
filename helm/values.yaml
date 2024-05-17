@@ -13,13 +13,13 @@ resources:
     cpu: 100m
     memory: 128Mi
 image:
-  repository: 726234843960.dkr.ecr.us-east-2.amazonaws.com/example-api
+  repository: 726234843960.dkr.ecr.us-east-2.amazonaws.com/author-api
   tag:
-fullnameOverride: example-api
+fullnameOverride: author-api
 extraEnv:
   NODE_ENV: ""
-  POSTGRES_DATABASE: "exampleapidb"
-  POSTGRES_USER: "example_api"
+  POSTGRES_DATABASE: "authorapidb"
+  POSTGRES_USER: "author_api"
 secrets:
   AWS_ACCESS_KEY_ID: ""
   AWS_SECRET_KEY: ""
