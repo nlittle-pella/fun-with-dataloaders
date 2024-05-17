@@ -1,0 +1,40 @@
+version: '2.1'
+services:
+  example-api:
+    container_name: example-api
+    build:
+      context: .
+      args:
+        NPM_TOKEN: "${NPM_TOKEN}"
+        GIT_SHA: "${GIT_SHA:-SNAPSHOT}"
+    image: example-api:SNAPSHOT
+    ports:
+      - 5130:5130
+    environment:
+      NODE_ENV: localhost
+      POSTGRES_HOST: example-db
+      POSTGRES_USER: example_api
+      POSTGRES_PASSWORD: example_api_ps
+    restart: on-failure
+    depends_on:
+      - example-db
+  example-db:
+    container_name: example-db
+    image: example-db
+    build:
+      context: infrastructure/postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U flyway" ]
+      interval: 3s
+      timeout: 30s
+      retries: 10
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.128.5.0/24

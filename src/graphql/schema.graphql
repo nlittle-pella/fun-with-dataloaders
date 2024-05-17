@@ -1,0 +1,19 @@
+type Example {
+    id: ID!
+}
+
+input InputExample {
+    id: String
+}
+
+input CreateExampleInput {
+    example: InputExample
+}
+
+type Mutation {
+    createExample(input: CreateExampleInput!): Example!
+}
+
+type Query {
+    getExampleById(id: String!): Example
+}

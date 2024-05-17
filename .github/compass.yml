@@ -1,0 +1,92 @@
+configVersion: 1
+name: example-api
+id: ari:cloud:compass:c898da8b-9bf6-4b8f-a070-6cd759173170:component/d1aac969-13c5-4dc4-bc95-f06577fea708/22c58eac-c155-4cfa-ace6-9e47bc2634b7
+description: |-
+  API for examples
+ownerId: ari:cloud:teams::team/b9d2da98-7326-4be9-b12a-5a7e05d49d4f
+typeId: TEMPLATE
+fields:
+  # (***Required***) The service tier of the component. Choose from one of the following
+  # The Service tier of the component. The accepted values are:
+  #
+  # 1 (highest importance)
+  # 2
+  # 3
+  # 4 (lowest importance)
+  tier: 4
+  # (**Required**) The current lifecycle status of the component. The accepted values are:
+  #
+  # Pre-release
+  # Active
+  # Deprecated
+  lifecycle: Active
+links:
+  - name: GitHub Repository URL
+    type: REPOSITORY
+    url: https://github.com/Pella-Digital-Team/example-api
+#  - name: LeanIX URL
+#    url: https://www.example.com/xxxxxxx
+#    type: OTHER_LINK
+#  - name: Postman Collection
+#    url: https://www.example.com/xxxxxxx
+#    type: OTHER_LINK
+#  - name: GraphQL Endpoint/Explorer
+#    url: https://www.example.com/xxxxxxx
+#    type: OTHER_LINK
+# (Optional) Provide any labels. use labels: [] if empty
+labels: []
+#  - language:javascript
+#  - source:github
+customFields:
+#  - name: SSO Capable # Is application integrated with SSO ?
+#    type: boolean
+#    value: true
+#  - name: SSO Provider # SSO Provider for ex Okta
+#    type: text
+#    value: 'Okta'
+#  - name: 'Hosting' # Where is the application hosted?
+#    type: text
+#    value: 'AWS' # use on-prem for on prem hosting
+#  - name: Active Since
+#    type: text
+#    value: '2023-03-09'
+  # (*Required*) Business Criticality. Choose from one of the following
+  # 1 (highest importance)
+  # 2
+  # 3
+  # 4 (lowest importance)
+#  - name: 'Business Criticality'
+#    type: number
+#    value: 1
+  # (*Required*) Functional Fit. Choose from one of the following
+  # 1 (Perfect)
+  # 2 (Appropriate)
+  # 3 (Insufficient)
+  # 4 (Unreasonable)
+#  - name: 'Functional Fit'
+#    type: number
+#    value: 1
+#  - name: 'Business Applications'
+#    type: multi_select
+#    value:
+#      - 'AAAAA' # Keep it Short
+#      - 'BBBBB' # Keep it Short
+#      - 'CCCCC' # Keep it Short
+#      - 'DDDDD' # Keep it Short
+#  - name: 'Data Objects' #
+#    type: multi_select
+#    value:
+#      - 'Customer' # Keep it Short
+#      - 'Order'
+#      - 'Company'
+#      - 'DDDDD'
+#  - name: 'Technologies Used' #
+#    type: multi_select
+#    value:
+#      - 'React' # Keep it Short
+#      - 'NodeJS'
+#      - 'GraphQL'
+#      - 'DDDDD'
+relationships:
+  DEPENDS_ON: []
+

@@ -1,0 +1,13 @@
+{
+    "root": true,
+    "extends": "@pella/eslint-config-pella",
+    "rules": {
+        "jest/no-conditional-expect": 0,
+        "eslint-comments/no-unused-disable": 0,
+        "node/no-unpublished-import": 0,
+        "jsdoc/require-jsdoc": 0
+    },
+    "globals": {
+        "chance": "readonly"
+    }
+}

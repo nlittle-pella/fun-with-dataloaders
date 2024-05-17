@@ -1,0 +1,8 @@
+{
+    "db": {
+        "database": "example-api",
+        "host": "127.0.0.1",
+        "user": "example_api",
+        "password": "example_api_ps"
+    }
+}

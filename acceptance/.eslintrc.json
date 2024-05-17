@@ -1,0 +1,7 @@
+{
+    "extends": "../.eslintrc.json",
+    "rules": {
+        "node/no-unpublished-import": 0,
+        "import/no-unresolved": 0
+    }
+}

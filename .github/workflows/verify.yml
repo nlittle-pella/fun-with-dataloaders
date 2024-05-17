@@ -1,0 +1,10 @@
+name: Verify
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  verify:
+    uses: Pella-Digital-Team/pella-workflows/.github/workflows/node-verify.yml@v24.5.15
+    secrets: inherit
+    with:
+      graphql_subgraph_name: ${{ vars.SUBGRAPH_NAME }}

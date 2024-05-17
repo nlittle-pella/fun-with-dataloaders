@@ -1,0 +1,62 @@
+version: 2
+registries:
+  npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{secrets.DEPENDABOT_NPM_TOKEN}}
+  github-repos:
+    type: git
+    url: https://github.com
+    username: pellamachineaccount
+    password: ${{secrets.PELLA_ACTIONS_TOKEN}}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries:
+      - npm-npmjs
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "US/Central"
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*babel*"
+          - "*jest*"
+          - "*eslint*"
+          - "chance"
+      pella:
+        patterns:
+          - "@pella/*"
+      aws:
+        patterns:
+          - "@aws*"
+  - package-ecosystem: "npm"
+    directory: "/acceptance"
+    registries:
+      - npm-npmjs
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "US/Central"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    registries:
+      - github-repos
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "US/Central"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "US/Central"
+    ignore:
+      - dependency-name: "node"
+        update-types: [ "version-update:semver-major" ]

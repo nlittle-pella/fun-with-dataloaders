@@ -1,0 +1,3 @@
+extraEnv:
+  NODE_ENV: dev
+  POSTGRES_HOST: "example-api-db.cckh31xjtyu2.us-east-2.rds.amazonaws.com"

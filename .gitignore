@@ -1,0 +1,5 @@
+.idea
+node_modules
+.jest-cache
+.jest-coverage
+*.iml

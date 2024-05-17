@@ -1,0 +1,22 @@
+# name: Deploy to Kubernetes
+
+# on:
+#   push:
+#     branches: [ main ]
+
+#   workflow_dispatch:
+
+# jobs:
+#   k8s-deploy:
+#     uses: Pella-Digital-Team/pella-workflows/.github/workflows/k8s-deploy.yml@v24.1.24
+#     with:
+#       runs_on: ubuntu-latest
+#       deploy_runs_on: pella-onprem
+#       app_name: ${{ vars.PEL_K8S_DEPLOYMENT }}
+#       graphql_subgraph_name: ${{ vars.SUBGRAPH_NAME }}
+#       enable_db_migrations: true
+#       tgt_cluster: aws-eks
+#       use_default_ns: true
+#       use_semver: false
+#       values_file_default: helm/values.yaml
+#     secrets: inherit
