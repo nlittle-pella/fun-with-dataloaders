@@ -1,19 +1,14 @@
 type Author {
-    id: ID!
+    id: Int!
+    name: String!
+    books: [Book]
 }
 
-input InputAuthor {
-    id: String
-}
-
-input CreateAuthorInput {
-    author: InputAuthor
-}
-
-type Mutation {
-    createAuthor(input: CreateAuthorInput!): Author!
+type Book {
+    id: Int!
+    title: String!
 }
 
 type Query {
-    getAuthorById(id: String!): Author
+    authors: [Author]
 }
