@@ -1,4 +1,4 @@
-FROM node:20.12.2-alpine as builder
+FROM node:20.15.0-alpine as builder
 
 ARG NPM_TOKEN
 
@@ -16,7 +16,7 @@ USER node
 
 ###################
 
-FROM node:20.12.2-alpine
+FROM node:20.15.0-alpine
 EXPOSE 5130
 
 WORKDIR /usr/src/app
