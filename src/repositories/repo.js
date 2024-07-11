@@ -42,8 +42,10 @@ const booksByAuthorMap = {
 };
 
 const booksByAuthor = (authorId) => booksByAuthorMap[authorId] || [];
+const booksForAuthorIds = (authorIds) => authorIds.map((authorId) => booksByAuthor(authorId));
 
 export {
     authors,
     booksByAuthor,
+    booksForAuthorIds,
 };
