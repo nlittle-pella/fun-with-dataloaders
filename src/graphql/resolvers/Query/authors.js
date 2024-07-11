@@ -43,12 +43,19 @@ const booksByAuthor = {
 
 const getBooks = (authorId) => {
     // eslint-disable-next-line no-console
-    console.log('Fetching books for author:', authorId);
+    console.log('roundtrip to database for:', authorId);
 
     return booksByAuthor[authorId] || [];
 };
 
-export const handler = () => authors.map((author) => ({
+const getAuthors = () => {
+    // eslint-disable-next-line no-console
+    console.log('roundtrip to database for authors');
+
+    return authors;
+};
+
+export const handler = () => getAuthors().map((author) => ({
     ...author,
     books: getBooks(author.id),
 }));
