@@ -6,7 +6,8 @@
         "eslint-comments/no-unused-disable": 0,
         "node/no-unpublished-import": 0,
         "jsdoc/require-jsdoc": 0,
-        "no-console": "off"
+        "no-console": "off",
+        "no-unused-vars": "off"
     },
     "globals": {
         "chance": "readonly"
