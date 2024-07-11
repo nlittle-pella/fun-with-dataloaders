@@ -5,7 +5,8 @@
         "jest/no-conditional-expect": 0,
         "eslint-comments/no-unused-disable": 0,
         "node/no-unpublished-import": 0,
-        "jsdoc/require-jsdoc": 0
+        "jsdoc/require-jsdoc": 0,
+        "no-console": "off"
     },
     "globals": {
         "chance": "readonly"
