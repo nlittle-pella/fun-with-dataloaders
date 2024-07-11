@@ -1,17 +1,7 @@
-import Dataloader from 'dataloader';
-
-import {booksForAuthorIds} from '../../../repositories/repo.js';
-
-const goToDatabase = (authorIds) => {
-    console.log('\t\tgoing to database to fetch books for:', authorIds);
-
-    return Promise.resolve(booksForAuthorIds(authorIds));
-};
-
-const handler = (parent, args, context) => {
+const handler = (parent, _args, context) => {
     console.log('\tcalling nested books resolver');
 
-    const loader = new Dataloader((authorIds) => goToDatabase(authorIds));
+    const loader = context.dataSources.booksByAuthorId;
 
     const authorId = parent.id;
 
