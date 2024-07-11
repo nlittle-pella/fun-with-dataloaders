@@ -1,6 +1,7 @@
 import {startAPI} from '@pella/graphql-api';
 
 import {afterServerStops, beforeServerStarts, healthzHandler} from '../src/infrastructure/server.js';
+import graphqlDataSources from '../src/graphql/loaders/index.js';
 
 jest.mock('@pella/graphql-api');
 
@@ -12,6 +13,7 @@ describe('index', () => {
         expect(startAPI).toHaveBeenCalledWith({
             afterServerStops,
             beforeServerStarts,
+            graphqlDataSources,
             healthzHandler,
             enableGraphqlFederation: true,
             name: 'author-api',
