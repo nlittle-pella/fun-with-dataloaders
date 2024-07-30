@@ -1,14 +1,30 @@
-type Author {
-    id: Int!
+type Presentation {
+    id: String!
     name: String!
-    books: [Book]
 }
 
-type Book {
-    id: Int!
+type Slide {
+    id: String!
     title: String!
+    position: Int!
+    bulletPoints: [BulletPoint]
+}
+
+type BulletPoint {
+    id: String!
+    content: String!
+    position: Int!
+}
+
+input PresentationInput {
+    name: String!
+}
+
+input SlidesInput {
+    presentationId: String!
 }
 
 type Query {
-    authors: [Author]
+    presentation(input: PresentationInput): Presentation
+    slides(input: SlidesInput): [Slide]
 }
