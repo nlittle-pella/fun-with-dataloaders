@@ -28,4 +28,18 @@ CREATE TABLE author.bullet_point
                 ON DELETE CASCADE
 );
 
+WITH no_loaders_presentation AS (
+    INSERT INTO author.presentation (name) VALUES ('No Loaders') RETURNING id
+)
+    INSERT INTO author.slide (presentation_id, title, position)
+    SELECT id, 'Write the resolver', 1 FROM no_loaders_presentation
+    UNION ALL
+    SELECT id, 'What is the problem?', 2 FROM no_loaders_presentation
+    UNION ALL
+    SELECT id, 'What is the solution?', 3 FROM no_loaders_presentation
+    UNION ALL
+    SELECT id, 'But ... how?', 4 FROM no_loaders_presentation
+    UNION ALL
+    SELECT id, '🚀 Dataloaders 🚀', 5 FROM no_loaders_presentation;
+
 INSERT INTO author.presentation (name) VALUES ('Dataloaders');

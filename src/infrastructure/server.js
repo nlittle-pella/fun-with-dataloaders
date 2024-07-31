@@ -6,6 +6,7 @@ const afterServerStops = async () => {
 };
 
 const beforeServerStarts = () => {
+    console.log(config.get('db'));
     initialize(config.get('db'));
 };
 

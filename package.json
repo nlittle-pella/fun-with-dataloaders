@@ -9,7 +9,7 @@
         "docker:infra": "docker compose up --build -d author-db && npm run flyway:migrate",
         "docker:stop": "docker compose down",
         "flyway:migrate": "./scripts/flyway-migrate.sh",
-        "start": "NODE_ENV=localhost node --watch index.js &",
+        "start": "NODE_ENV=localhost node index.js",
         "lint": "echo 'checking to make sure that your code is clean'",
         "lint:fix": "eslint . --fix --ext .js,.json",
         "coverage": "jest --coverage",

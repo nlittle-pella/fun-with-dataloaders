@@ -17,7 +17,7 @@ type BulletPoint {
 }
 
 input PresentationInput {
-    name: String!
+    id: String!
 }
 
 input SlidesInput {
@@ -25,6 +25,7 @@ input SlidesInput {
 }
 
 type Query {
+    presentations: [Presentation]
     presentation(input: PresentationInput): Presentation
     slides(input: SlidesInput): [Slide]
 }

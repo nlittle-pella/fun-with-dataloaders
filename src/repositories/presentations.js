@@ -1,17 +1,41 @@
 import {query} from '@pella/postgres-adapter';
 
-const getByName = async (name) => {
+const getById = async (id) => {
   const sql = `
     SELECT *
     FROM author.presentation
-    WHERE name = $1
+    WHERE id = $1
   `;
-  const values = [name];
+  const values = [id];
   const result = await query(sql, values);
 
   return result.rows[0];
 };
 
+const getAll = async () => {
+  const sql = `
+    SELECT *
+    FROM author.presentation
+  `;
+  const result = await query(sql);
+
+  return result.rows;
+};
+
+const getSlidesByPresentationId = async (presentationId) => {
+  const sql = `
+    SELECT *
+    FROM author.slide
+    WHERE "presentation_id" = $1
+  `;
+  const values = [presentationId];
+  const result = await query(sql, values);
+
+  return result.rows;
+};
+
 export default {
-  getByName,
+  getById,
+  getAll,
+  getSlidesByPresentationId,
 }
