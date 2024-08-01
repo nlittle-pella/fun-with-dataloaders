@@ -1,21 +1,5 @@
 import {query} from '@pella/postgres-adapter';
 
-const getSlidesByPresentationId = async (presentationId) => {
-  console.log('');
-  console.log('TRIP TO DB [getSlidesByPresentationId]: ', presentationId);
-  console.log('');
-
-  const sql = `
-    SELECT *
-    FROM author.slide
-    WHERE "presentation_id" = $1
-  `;
-  const values = [presentationId];
-  const result = await query(sql, values);
-
-  return result.rows;
-};
-
 const getBulletsBySlideId = async (slideId) => {
   console.log('TRIP TO DB [getBulletsBySlideId]: ', slideId);
   const sql = `
@@ -56,6 +40,82 @@ const getBulletsBySlideIds = async (slideIds) => {
   });
 
   return response;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const getSlidesByPresentationId = async (presentationId) => {
+  console.log('');
+  console.log('TRIP TO DB [getSlidesByPresentationId]: ', presentationId);
+  console.log('');
+
+  const sql = `
+    SELECT *
+    FROM author.slide
+    WHERE "presentation_id" = $1
+  `;
+  const values = [presentationId];
+  const result = await query(sql, values);
+
+  return result.rows;
 };
 
 const getById = async (id) => {
