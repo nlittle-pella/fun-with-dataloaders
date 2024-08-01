@@ -35,6 +35,8 @@ WITH no_loaders_presentation AS (
     INSERT INTO author.slide (presentation_id, title, position)
         SELECT id, 'Write the resolvers', 1 FROM no_loaders_presentation
         UNION ALL
+        SELECT id, 'Pella GraphQL Framework Datasources', 1 FROM no_loaders_presentation
+        UNION ALL
         SELECT id, 'What is the problem?', 2 FROM no_loaders_presentation
         UNION ALL
         SELECT id, 'What is the solution?', 3 FROM no_loaders_presentation
@@ -48,6 +50,10 @@ INSERT INTO author.bullet_point (slide_id, content, position)
     SELECT id, 'src/graphql/Query/slides.js', 1 FROM no_loaders_slides WHERE title = 'Write the resolvers'
     UNION ALL
     SELECT id, 'src/graphql/Slide/bulletPoints.js', 2 FROM no_loaders_slides WHERE title = 'Write the resolvers'
+    UNION ALL
+    SELECT id, 'Point 1', 1 FROM no_loaders_slides WHERE title = 'Pella GraphQL Framework Datasources'
+    UNION ALL
+    SELECT id, 'Point 2', 2 FROM no_loaders_slides WHERE title = 'Pella GraphQL Framework Datasources'
     UNION ALL
     SELECT id, 'Just like I''m showing the bullet points here slide-by-slide', 1 FROM no_loaders_slides WHERE title = 'What is the problem?'
     UNION ALL

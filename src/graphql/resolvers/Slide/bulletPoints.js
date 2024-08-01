@@ -3,10 +3,7 @@ const handler = (slide, _args, context) => {
 
   console.log('bullets for slide handler:', slideId);
 
-  // return [];
-  const { bulletsForSlide } = context.dataSources;
-
-  return bulletsForSlide.load(slideId);
+  return [];
 };
 
 export {
