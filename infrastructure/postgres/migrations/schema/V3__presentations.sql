@@ -31,15 +31,49 @@ CREATE TABLE author.bullet_point
 WITH no_loaders_presentation AS (
     INSERT INTO author.presentation (name) VALUES ('No Loaders') RETURNING id
 )
+, no_loaders_slides AS (
     INSERT INTO author.slide (presentation_id, title, position)
-    SELECT id, 'Write the resolver', 1 FROM no_loaders_presentation
+        SELECT id, 'Write the resolvers', 1 FROM no_loaders_presentation
+        UNION ALL
+        SELECT id, 'What is the problem?', 2 FROM no_loaders_presentation
+        UNION ALL
+        SELECT id, 'What is the solution?', 3 FROM no_loaders_presentation
+        UNION ALL
+        SELECT id, 'But ... how?', 4 FROM no_loaders_presentation
+        UNION ALL
+        SELECT id, '🚀 Dataloaders 🚀', 5 FROM no_loaders_presentation
+        RETURNING id, title
+)
+INSERT INTO author.bullet_point (slide_id, content, position)
+    SELECT id, 'src/graphql/Query/slides.js', 1 FROM no_loaders_slides WHERE title = 'Write the resolvers'
     UNION ALL
-    SELECT id, 'What is the problem?', 2 FROM no_loaders_presentation
+    SELECT id, 'src/graphql/Slide/bulletPoints.js', 2 FROM no_loaders_slides WHERE title = 'Write the resolvers'
     UNION ALL
-    SELECT id, 'What is the solution?', 3 FROM no_loaders_presentation
+    SELECT id, 'Just like I''m showing the bullet points here slide-by-slide', 1 FROM no_loaders_slides WHERE title = 'What is the problem?'
     UNION ALL
-    SELECT id, 'But ... how?', 4 FROM no_loaders_presentation
+    SELECT id, 'Our bullet points resolver goes to the database for bullet points slide-by-slide', 2 FROM no_loaders_slides WHERE title = 'What is the problem?'
     UNION ALL
-    SELECT id, '🚀 Dataloaders 🚀', 5 FROM no_loaders_presentation;
+    SELECT id, 'This is called the N+1 problem', 3 FROM no_loaders_slides WHERE title = 'What is the problem?'
+    UNION ALL
+    SELECT id, 'We go to the database 1 time and it returns N slides', 4 FROM no_loaders_slides WHERE title = 'What is the problem?'
+    UNION ALL
+    SELECT id, 'Then we go back to the database N more times, once for each slide, to get the bullet points', 5 FROM no_loaders_slides WHERE title = 'What is the problem?'
+    UNION ALL
+    SELECT id, 'Go to the database for the slides (still 1 trip for N slides)', 1 FROM no_loaders_slides WHERE title = 'What is the solution?'
+    UNION ALL
+    SELECT id, 'But, now we need to BATCH up all of the slide ids', 2 FROM no_loaders_slides WHERE title = 'What is the solution?'
+    UNION ALL
+    SELECT id, 'Handler is invoked FOR EACH slide', 1 FROM no_loaders_slides WHERE title = 'But ... how?'
+    UNION ALL
+    SELECT id, 'How do we get access to all of the slides at once?', 2 FROM no_loaders_slides WHERE title = 'But ... how?'
+    UNION ALL
+    SELECT id, 'We need to create a batching function OUTSIDE of the context of the handler', 1 FROM no_loaders_slides WHERE title = '🚀 Dataloaders 🚀'
+    UNION ALL
+    SELECT id, 'Enter dataloaders!', 2 FROM no_loaders_slides WHERE title = '🚀 Dataloaders 🚀';
+
 
 INSERT INTO author.presentation (name) VALUES ('Dataloaders');
+-- Interface
+-- Requirements
+-- Demonstrate the errors with the tests
+-- Go back to data loader to show what we do to make sure we meet the requirements

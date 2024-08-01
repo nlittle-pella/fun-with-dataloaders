@@ -1,7 +1,6 @@
-import presentations from '../../../repositories/presentations.js';
+const handler = async (_parent, _args, context) => {
+  const presentations = context.dataSources.presentations;
 
-const handler = async () => {
-  console.log('getting presentations...');
   return await presentations.getAll();
 };
 
