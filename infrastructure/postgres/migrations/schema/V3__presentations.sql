@@ -120,15 +120,15 @@ INSERT INTO author.bullet_point (slide_id, content, position)
     UNION ALL
     SELECT id, 'And wrapped it in a Dataloader', 4 FROM loaders_slides WHERE title = 'Refactor!'
     UNION ALL
-    SELECT id, 'https://github.com/Pella-Digital-Team/graphql-api/blob/85b72e1a62e27d6b2ee9d6be47d7a64f9c2f0450/src/resolvers.js#L279-L283', 1 FROM loaders_slides WHERE title = 'Data sources function is critical!'
+    SELECT id, 'Our data loaders need to be created OUTSIDE the scope of our handlers', 1 FROM loaders_slides WHERE title = 'Data sources function is critical!'
     UNION ALL
-    SELECT id, 'Our data loaders need to be created OUTSIDE the scope of our handlers', 2 FROM loaders_slides WHERE title = 'Data sources function is critical!'
+    SELECT id, 'If data loader is created INSIDE of handler then it won''t work.', 2 FROM loaders_slides WHERE title = 'Data sources function is critical!'
     UNION ALL
-    SELECT id, 'If data loader is created INSIDE of handler then it won''t work.', 3 FROM loaders_slides WHERE title = 'Data sources function is critical!'
+    SELECT id, 'You would be creating a new instance at each invocation of your handler.', 3 FROM loaders_slides WHERE title = 'Data sources function is critical!'
     UNION ALL
-    SELECT id, 'You would be creating a new instance at each invocation of your handler.', 4 FROM loaders_slides WHERE title = 'Data sources function is critical!'
+    SELECT id, 'Thus, you would be creating a new "batch" in each handler.', 4 FROM loaders_slides WHERE title = 'Data sources function is critical!'
     UNION ALL
-    SELECT id, 'Thus, you would be creating a new "batch" in each handler.', 5 FROM loaders_slides WHERE title = 'Data sources function is critical!'
+    SELECT id, 'https://github.com/Pella-Digital-Team/graphql-api/blob/85b72e1a62e27d6b2ee9d6be47d7a64f9c2f0450/src/resolvers.js#L279-L283', 5 FROM loaders_slides WHERE title = 'Data sources function is critical!'
     UNION ALL
     SELECT id, 'Accepts an array of keys', 1 FROM loaders_slides WHERE title = 'Dataloaders requirements'
     UNION ALL
